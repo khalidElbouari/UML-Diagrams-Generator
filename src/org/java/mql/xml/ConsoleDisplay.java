@@ -1,4 +1,4 @@
-package org.mql.xml;
+package org.java.mql.xml;
 
 
 import org.java.mql.umlGenerator.model.ClassModel;

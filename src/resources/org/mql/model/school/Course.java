@@ -7,7 +7,6 @@ public class Course {
     private List<Student> students;
 
     public Course() {}
-
     public Course(String courseName, List<Student> students) {
         this.courseName = courseName;
         this.students = students;
