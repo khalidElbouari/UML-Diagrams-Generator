@@ -20,7 +20,7 @@ public class ProjetPanel extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 	
         for (PackageModel packageModel : this.projetModel.getPackages()) {
-        	add(new PackagePanel(packageModel)); // Ajouter chaque package 
+        	add(new PackagePanel(packageModel)); 
 		 }
 		 
     }

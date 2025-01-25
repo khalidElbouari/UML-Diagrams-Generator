@@ -133,8 +133,28 @@ public class PackagePanel extends JPanel {
         g.setStroke(defaultStroke);
 
         // Dessiner un indicateur de relation à la fin de la ligne
-        drawRelationIndicator(g, target, type);
+        if (type == RelationType.AGGREGATION) {
+            Point adjustedSource = adjustIndicatorPosition(source, target);
+            drawRelationIndicator(g, adjustedSource, type);
+        } else {
+            drawRelationIndicator(g, target, type);
+        }
+
     }
+    private Point adjustIndicatorPosition(Point source, Point target) {
+        int offset = 20; // Augmenter le décalage
+        int dx = target.x - source.x;
+        int dy = target.y - source.y;
+
+        double distance = Math.sqrt(dx * dx + dy * dy);
+        double ratio = offset / distance;
+
+        int adjustedX = (int) (source.x + dx * ratio);
+        int adjustedY = (int) (source.y + dy * ratio);
+
+        return new Point(adjustedX, adjustedY);
+    }
+
 
     private Point getEdgePoint(ClassPanel panel, ClassPanel otherPanel) {
         Rectangle bounds = panel.getBounds();
